@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            border-radius: none;
+        }
+        body{
+            background-color: rgb(199, 199, 199);
+        }
+        #calculator {
+            width: 190px;
+            margin: 10% auto;
+            padding: 12px;
+            border: 1px solid #38001c;
+            border-radius: 10px;
+            background-color: #3b3737;
+            color: aliceblue;
+        }
+        input[type="text"] {
+            width: 90%;
+            margin-bottom: 12px;
+            color: rgb(0, 0, 0);
+        }
+        input[type="button"] {
+            width: 48px;
+            height: 48px;
+            font-size: 18px;
+            margin: 2px;
+            color: rgb(1, 2, 116);
+        }
+        #display{
+            width: 180px;
+            height: 35px;
+            background-color: rgb(102, 112, 121);
+            border-radius: 10px;
+        }
+        #C{
+            border-radius: 50%;
+            background-color: rgb(156, 0, 0);
+            color: aliceblue;
+            height: 30px;
+            width: 30px;
+        }
+        #n{
+            border-radius: 50%;
+            background-color: rgb(11, 49, 6);
+            color: rgb(189, 215, 238);
+            height: 40px;
+            width: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div id="calculator">
+        <input type="text" id="display" readonly>
+        <input type="button" id="C" value="C" onclick="clearDisplay()"> <br>
+        <input type="button" id="n"  value="7" onclick="addToDisplay('7')">
+        <input type="button" id="n" value="8" onclick="addToDisplay('8')">
+        <input type="button" id="n" value="9" onclick="addToDisplay('9')">
+        <input type="button" id="n"  value="÷" onclick="addToDisplay('/')">
+        <br>
+        <input type="button" id="n" value="4" onclick="addToDisplay('4')">
+        <input type="button" id="n" value="5" onclick="addToDisplay('5')">
+        <input type="button" id="n" value="6" onclick="addToDisplay('6')">
+        <input type="button" id="n" value="×" onclick="addToDisplay('*')">
+        <br>
+        <input type="button" id="n" value="1" onclick="addToDisplay('1')">
+        <input type="button" id="n" value="2" onclick="addToDisplay('2')">
+        <input type="button" id="n" value="3" onclick="addToDisplay('3')">
+        <input type="button" id="n" value="-" onclick="addToDisplay('-')">
+        <br>
+        <input type="button" id="n" value="0" onclick="addToDisplay('0')">
+        <input type="button" id="n" value="." onclick="addToDisplay('.')">
+        <input type="button" id="n" value="=" onclick="calculate()">
+        <input type="button" id="n" value="+" onclick="addToDisplay('+')">
+        <br>
+        
+    </div>
+
+    <script>
+        function addToDisplay(value) {
+            document.getElementById('display').value += value;
+        }
+
+        function calculate() {
+            try {
+                document.getElementById('display').value = eval(document.getElementById('display').value);
+            } catch (error) {
+                document.getElementById('display').value = 'Error';
+            }
+        }
+
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+    </script>
+</body>
+</html>
